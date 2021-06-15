@@ -1,0 +1,58 @@
+<div class="">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <div class="container-fluid">
+        <a class="navbar-brand color-nav" href="#">ArriendaTE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <form (submit)="searchUser()">
+              <ul class="navbar-nav">
+                <li class="navbar-item">
+                  <div class="input-group rounded">
+                    <input [(ngModel)]="search" name="username" type="search" class="form-control rounded" placeholder="Buscar Perfil" aria-label="Search"
+                      aria-describedby="search-addon" />
+                  </div>
+                </li>
+                <li class="navbar-item">
+                  <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-search"></i></button>
+                </li>
+              </ul>
+            </form>
+          </ul>
+          <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/publicaciones" routerLinkActive="active">Publicaciones</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/signin" routerLinkActive="active">Acceder</a>
+              </li>
+            </ul>
+          </ng-container>
+          <ng-template #loggedIn>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/publicaciones" routerLinkActive="active">Publicaciones</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/publicacion/nueva/crear" routerLinkActive="active">Crear Publicación</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/profile" routerLinkActive="active">Mi perfil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="cursor: pointer;" (click)="authService.logOut()">Salir</a>
+              </li>
+            </ul>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+  <router-outlet></router-outlet>

@@ -1,0 +1,184 @@
+<div class="container">
+    <div>
+        <h1 class="titulo-editar-anuncio">
+            <span>Edita tu anuncio</span>
+        </h1>
+    </div>
+</div>
+<div class="container">
+    <div class="test pb-5 pt-5">
+        <form (submit)="editarPublicacion()">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <h1 class="sub-title">
+                        Edita algunos detalles.
+                    </h1>
+                    <div class="col-md-12 mb-4">
+                        <p>Tipo de publicación*</p>
+                        <ng-container *ngIf="publicacion.lease == 'Venta'; else Arriendo">
+                            <input [(ngModel)]="publicacion.lease" type="radio" name="TipoPublicacion" value="Venta"
+                                checked required>
+                            Venta
+                            <input [(ngModel)]="publicacion.lease" type="radio" name="TipoPublicacion" value="Arriendo"
+                                required>
+                            Arriendo
+                        </ng-container>
+                        <ng-template #Arriendo>
+                            <input [(ngModel)]="publicacion.lease" type="radio" name="TipoPublicacion" value="Venta"
+                                required>
+                            Venta
+                            <input [(ngModel)]="publicacion.lease" type="radio" name="TipoPublicacion" value="Arriendo"
+                                required checked>
+                            Arriendo
+                        </ng-template>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <p>Tipo de inmueble*</p>
+                        <ng-container *ngIf="publicacion.type == 'Casa'; else Apartamento">
+                            <input [(ngModel)]="publicacion.type" type="radio" name="Tipo" value="Casa" checked
+                                required>
+                            Casa
+                            <input [(ngModel)]="publicacion.type" type="radio" name="Tipo" value="Apartamento" required>
+                            Apartamento
+                        </ng-container>
+                        <ng-template #Apartamento>
+                            <input [(ngModel)]="publicacion.type" type="radio" name="Tipo" value="Casa" required>
+                            Casa
+                            <input [(ngModel)]="publicacion.type" type="radio" name="Tipo" value="Apartamento" required
+                                checked>
+                            Apartamento
+                        </ng-template>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <p>Habitaciones*</p>
+                        <select [(ngModel)]="publicacion.rooms" name="habitaciones" id="lista">
+                            <option value="Estudio">Estudio</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <p>Baños*</p>
+                        <select [(ngModel)]="publicacion.bathrooms" name="bathrooms" id="lista">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <p>Metros Cuadrados Totales*</p>
+                        <input [(ngModel)]="publicacion.mt2" name="mt2" type="number" id="lista">
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <p>Antigüedad*</p>
+                        <select [(ngModel)]="publicacion.antiquity" name="antiquity" id="lista">
+                            <option value="En construcción">En construcción</option>
+                            <option value="A estrenar">A estrenar</option>
+                            <option value="Hasta 5 años">Hasta 5 años</option>
+                            <option value="Entre 5 y 10 años">Entre 5 y 10 años</option>
+                            <option value="Entre 10 y 20 años">Entre 10 y 20 años</option>
+                            <option value="Entre 20 y 50 años">Entre 20 y 50 años</option>
+                            <option value="Más de 50 años">Más de 50 años</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <p>Estrato*</p>
+                        <select [(ngModel)]="publicacion.strate" name="strate" id="lista" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <p>Número de contacto (Colombia)*</p>
+                        <input [(ngModel)]="publicacion.phone" name="phone" type="number" id="lista" required>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <p>Título del anuncio*</p>
+                        <input [(ngModel)]="publicacion.title" name="title" id="title-edit" type="text" maxlength="120"
+                            oninput="if(this.value.length > this.maxLength)  this.value = this.value.slice(0, this.maxLength);"
+                            required /><br>
+                        <i>(Máximo 120 caracteres)</i>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <p>Descripción*</p>
+                        <textarea [(ngModel)]="publicacion.description" name="description" id="title-edit" cols="30"
+                            rows="10" maxlength="4000"
+                            oninput="if(this.value.length > this.maxLength)  this.value = this.value.slice(0, this.maxLength);"
+                            required></textarea><br>
+                        <i>(Máximo 4000 caracteres)</i>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <p>Precio*</p>
+                        <input [(ngModel)]="publicacion.price" name="price" id="lista" type="number" maxlength="10"
+                            oninput="if(this.value.length > this.maxLength)  this.value = this.value.slice(0, this.maxLength);"
+                            required /><br>
+                        <i>(Máximo 9,999,999,999)</i>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <p>Dirección*</p>
+                        <input [(ngModel)]="publicacion.street" name="street" id="title-edit" type="text" required />
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <p>Piso*</p>
+                        <select [(ngModel)]="publicacion.piso" name="piso" id="lista" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="Mayor a 18">Mayor a 18</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <p>Ciudad*</p>
+                        <select [(ngModel)]="publicacion.city" name="city" id="lista" required>
+                            <option value="Bucaramanga">Bucaramanga</option>
+                            <option value="Floridablanca">Floridablanca</option>
+                            <option value="Girón">Girón</option>
+                            <option value="Piedecuesta">Piedecuesta</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Editar</button>
+                    <div style="text-align: center;" *ngIf="error.err">{{error.err}}</div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </form>
+    </div>
+</div>

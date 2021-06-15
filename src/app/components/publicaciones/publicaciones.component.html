@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="span mt-5">
+        <h5>Nuevas publicaciones</h5>
+        <div class="row">
+            <div class="col-md-2">
+                <p>Tipo: <select (click)="ordenarPublicacionesTipo()" [(ngModel)]="tipo" name="tipo">
+                        <option value="">Cualquiera</option>
+                        <option value="Casa">Casa</option>
+                        <option value="Apartamento">Apartamento</option>
+                    </select></p>
+            </div>
+            <div class="col-md-2">
+                <p>Baños: <select (click)="ordenarPublicacionesTipo()" [(ngModel)]="bathrooms" name="bathrooms">
+                        <option value="">Cualquiera</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select></p>
+            </div>
+            <div class="col-md-2">
+                <p>Cuartos: <select (click)="ordenarPublicacionesTipo()" [(ngModel)]="rooms" name="rooms">
+                    <option value="">Cualquiera</option>
+                    <option value="Estudio">Estudio</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select></p>
+            </div>
+            <div class="col-md-2">
+                <p>Estrato: <select (click)="ordenarPublicacionesTipo()" [(ngModel)]="strate" name="strate">
+                    <option value="">Cualquiera</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select></p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 mb-3 mt-5" *ngFor="let publicacion of sortPublicaciones">
+            <a href="/publicacion/{{publicacion._id}}">
+                <div class="borde-publicacion">
+                    <div class="imagen-casa">
+
+                    </div>
+                    <h1 class="text-center mt-2">$ {{publicacion.price}}</h1>
+                    <hr>
+                    <div class="pl-3">
+                        <h6><span>{{publicacion.rooms}} Dor. - {{publicacion.bathrooms}} Bñ. - {{publicacion.mt2}}
+                                m2</span></h6>
+                        <h6><span>{{publicacion.title}}...</span></h6>
+                        <h6><span class="text-left">{{publicacion.city}}</span></h6>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

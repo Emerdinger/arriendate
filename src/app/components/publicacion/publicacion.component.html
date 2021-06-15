@@ -1,0 +1,120 @@
+<div class="container mt-5">
+    <div class="row img-size">
+        <div class="col-md-7 mb-3">
+            <div class="img-casa">
+                <img src="https://soyarquitectura.mx/wp-content/uploads/2020/09/Fachada-Casa-moderna-dos-pisos-Nogal-blogc7-edited.jpg"
+                    alt="">
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="contenedor-casa pl-3 pt-3 pb-3">
+                <h3>$ {{publicacion.price}}</h3>
+                <div class="pl-3">
+                    <h6><span>{{publicacion.rooms}} Dor. - {{publicacion.bathrooms}} Bñ. - {{publicacion.mt2}} m2</span>
+                    </h6>
+                    <h6><span>{{publicacion.title}}</span></h6>
+                    <h6><span class="text-left">{{publicacion.city}}</span></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7 contenedor-casa pl-3 pt-3 pb-3 mb-5">
+            <h3>Detalles - Tipo - {{publicacion.lease}}</h3>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <b>Tipo</b>
+                </div>
+                <div class="col-md-3 mb-3">
+                    {{publicacion.type}}
+                </div>
+                <div class="col-md-3 mb-3">
+                    <b>Habitaciones</b>
+                </div>
+                <div class="col-md-3 mb-3">
+                    {{publicacion.rooms}}
+                </div>
+                <div class="col-md-3 mb-3">
+                    <b>Baños</b>
+                </div>
+                <div class="col-md-3 mb-3">
+                    {{publicacion.bathrooms}}
+                </div>
+                <div class="col-md-3 mb-3">
+                    <b>Metros Cuadrados Totales</b>
+                </div>
+                <div class="col-md-3 mb-3">
+                    {{publicacion.mt2}} m2
+                </div>
+                <div class="col-md-3 mb-3">
+                    <b>Antigüedad</b>
+                </div>
+                <div class="col-md-3 mb-3">
+                    {{publicacion.antiquity}}
+                </div>
+                <div class="col-md-3 mb-3">
+                    <b>Estrato</b>
+                </div>
+                <div class="col-md-3 mb-3">
+                    {{publicacion.strate}}
+                </div>
+            </div>
+            <hr>
+            <h3>Descripción</h3>
+            <span>{{publicacion.description}}.</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 contenedor-casa pl-3 pt-3 pb-3 mb-5 h1-anuncio">
+            <h3>Anuncios relacionados</h3>
+            <div class="row text-center">
+                <div class="col-md-3 mb-3 mt-5" *ngFor="let publicacion of anuncios">
+                    <a href="/publicacion/{{publicacion._id}}">
+                        <div class="borde-publicacion pt-3 pb-3">
+                            <div class="imagen-casa-anuncio">
+
+                            </div>
+                            <h1 class="text-center mt-2">$ {{publicacion.price}}</h1>
+                            <hr>
+                            <div class="pl-3">
+                                <h6><span>{{publicacion.rooms}} Dor. - {{publicacion.bathrooms}} Bñ. -
+                                        {{publicacion.mt2}} m2</span></h6>
+                                <h6><span>{{publicacion.title}}...</span></h6>
+                                <h6><span class="text-left">{{publicacion.city}}</span></h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-12 contenedor-casa pt-3 pb-3">
+            <h2>Comentarios</h2>
+            <div *ngFor="let comentario of comments">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h3>{{comentario.username}}:</h3>
+                    </div>
+                    <div class="col-md-2 text-right">
+                        <ng-container *ngIf="comentario.username == usuarioLogged">
+                            <i (click)="eliminarComentario(comentario._id)" title="Eliminar comentario" class="fas fa-trash"></i>
+                        </ng-container>
+                    </div>
+                </div>
+                <span>{{comentario.body}}</span>
+                <p class="text-right">{{comentario.createdAt}}</p>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-12 contenedor-casa pt-3 pb-3">
+            <h2>Escribe tu comentario</h2>
+            <form (submit)="comentar()">
+                <input type="text" [(ngModel)]="comment.body"name="comment" id="" class="mr-2 comentar">
+                <button><i class="fas fa-arrow-circle-up"></i></button>
+            </form>
+        </div>
+    </div>
+</div>

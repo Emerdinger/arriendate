@@ -1,0 +1,22 @@
+a{
+    text-decoration: none;
+}
+
+.borde-publicacion{
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.borde-publicacion h1{
+    font-size: 150%;
+}
+
+.imagen-casa{
+    background-image: url(https://img.icons8.com/ios/452/home--v4.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+    width: 100px;
+    margin: auto;
+}

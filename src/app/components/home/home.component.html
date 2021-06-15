@@ -1,0 +1,114 @@
+<!-- Header -->
+<header id="head">
+    <div class="container">
+        <h1 class="text-center pt-5">Pon en arriendo tus apartamentos o casas de una forma sencilla</h1>
+        <h3 class="text-center pb-4">Una herramienta muy intuitiva</h3>
+        <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+            <p class="text-center pt-5 pb-2"><a routerLink= "/signin" routerLinkActive="active" class="btn btn-default btn-lg btn-success mr-4 btn-hover" role="button">INGRESA</a><a routerLink="/signup" routerLinkActive="active" class="btn btn-action btn-lg btn-warning btn-hover" role="button">REGISTRATE</a></p>
+        </ng-container>
+        <ng-template #loggedIn>
+            <p class="text-center pt-5 pb-2 btn-hover"><a routerLink= "/publicacion/nueva/crear" routerLinkActive="active" class="btn btn-default btn-lg btn-success mr-4" role="button">Crear publicación</a></p>
+        </ng-template>
+    </div>
+</header>
+
+<!-- Body -->
+
+<div class="container mt-5">
+    <h3 class="text-center mb-5">Pública tus casas en venta o en arriendo</h3>
+    <div class="row mt-5 mb-5">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <i style="color: rgb(149, 224, 149);" class="fas fa-check fa-5x"></i>
+                </div>
+                <div class="col-md-8">
+                    <h4>Fácil</h4>
+                    <p>Sin instalaciones ni descargas, todo online. Interfaz intuitiva para crear publicaciones de tus propiedades en arriendo o venta.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fal fa-phone-laptop fa-5x"></i>
+                </div>
+                <div class="col-md-8">
+                    <h4>Multidispositivo</h4>
+                    <p>Puedes usarla en cualquier momento, nuestra página web se adapta a cualquier dispositivo.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row mt-5 mb-5">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="far fa-palette fa-5x"></i>
+                </div>
+                <div class="col-md-8">
+                    <h4>Personalizable</h4>
+                    <p>Añade una gran cantidad de datos a tú publicación, estos datos pueden ser editados en cualquier momento.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fas fa-shield-alt fa-5x"></i>
+                </div>
+                <div class="col-md-8">
+                    <h4>Seguro</h4>
+                    <p>Nos encargamos de la seguridad de tus datos, solo tu podrás editar o eliminar tus publicaciones.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row mt-5 mb-5">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="far fa-paper-plane fa-5x"></i>
+                </div>
+                <div class="col-md-8">
+                    <h4>De fácil distribución</h4>
+                    <p>Puedes compartir tus publicaciones en cualquier momento con la url generada automaticamente.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="far fa-clock fa-5x"></i>
+                </div>
+                <div class="col-md-8">
+                    <h4>En tiempo real</h4>
+                    <p>Visualiza los resultados en tiempo real..</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="text-center pb-5">
+        <a href=""><button class="btn btn-info btn-hover">VER CÓMO FUNCIONA</button></a>
+    </div>
+
+    <ng-container *ngIf="!authService.loggedIn(); else loggedEncuesta">
+        <div class="text-center pb-5">
+            <h3>¿Aún no tienes cuenta?  <a routerLink="/signup" routerLinkActive="active"><button class="btn btn-success">Crear cuenta</button></a></h3>
+        </div>
+    </ng-container>
+    <ng-template #loggedEncuesta>
+        <div class="text-center pb-5">
+            <h3>Pública tu casa o apartamento ahora <a routerLink="/publicacion/nueva/crear" routerLinkActive="active"><button class="btn btn-success">Nueva publicación</button></a></h3>
+        </div>
+    </ng-template>
+</div>

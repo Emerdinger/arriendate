@@ -1,0 +1,25 @@
+<div class="row login-form">
+    <div class="col-md-5 mx-auto">
+        <div class="card">
+            <div style="text-align: center;" *ngIf="error.err">{{error.err}}</div>
+            <div class="card-header" style="text-align: center;">
+                Accede a tu cuenta
+            </div>
+            <div class="card-body">
+                <form (submit)="signIn()">
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="user.username" name="username" class="form-control" placeholder="Usuario" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Contraseña" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Inicia sesión</button>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                ¿No tienes cuenta? <a routerLink="/signup" routerLinkActive="active">Crear cuenta</a> <br>
+                <a routerLink="/forgotpassword" routerLinkActive="active">¿Has olvidado tu contraseña?</a>
+            </div>
+        </div>
+    </div>
+</div>
