@@ -56,7 +56,7 @@
     </div>
     <div class="row">
         <div class="col-md-3 mb-3 mt-5" *ngFor="let publicacion of sortPublicaciones">
-            <a href="/publicacion/{{publicacion._id}}">
+            <a routerLink="/publicacion/{{publicacion._id}}" routerLinkActive="active">
                 <div class="borde-publicacion">
                     <div class="imagen-casa">
 
