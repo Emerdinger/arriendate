@@ -69,7 +69,7 @@
             <h3>Anuncios relacionados</h3>
             <div class="row text-center">
                 <div class="col-md-3 mb-3 mt-5" *ngFor="let publicacion of anuncios">
-                    <a href="https://emerdinger.github.io/arriendate/#/publicacion/{{publicacion._id}}">
+                    <a (click) = "reload(publicacion._id)" style="cursor: pointer;">
                         <div class="borde-publicacion pt-3 pb-3">
                             <div class="imagen-casa-anuncio">
 

@@ -149,7 +149,7 @@
                         <tbody *ngFor="let publicacion of publicaciones">
                             <div style="text-align: center;" *ngIf="error.err">{{error.err}}</div>
                             <tr class="text-center">
-                                <td><a href="https://emerdinger.github.io/arriendate/#/{{publicacion._id}}">{{publicacion.title}}</a><i routerLink="/publicacion/editar/{{publicacion._id}}" routerLinkActive = "active" class="pl-5 fad fa-edit"></i><i (click)="eliminarPublicacion(publicacion._id)" class="pl-3 far fa-trash-alt"></i></td>
+                                <td><a routerLink="/publicacion/{{publicacion._id}}" routerLinkActive="active">{{publicacion.title}}</a><i routerLink="/publicacion/editar/{{publicacion._id}}" routerLinkActive = "active" class="pl-5 fad fa-edit"></i><i (click)="eliminarPublicacion(publicacion._id)" class="pl-3 far fa-trash-alt"></i></td>
                             </tr>
                         </tbody>
                     </table>

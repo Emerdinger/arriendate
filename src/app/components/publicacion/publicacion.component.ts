@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicacionesService } from "../../services/publicaciones.service";
 import { AuthService } from "../../services/auth.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-publicacion',
@@ -43,7 +43,7 @@ export class PublicacionComponent implements OnInit {
     err: ''
   }
 
-  constructor(private publicacionesService: PublicacionesService, private _router: ActivatedRoute, private authService: AuthService) { }
+  constructor(private publicacionesService: PublicacionesService, private _router: ActivatedRoute, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.publicacionesService.getPublicacionVer(String(this._router.snapshot.paramMap.get('id'))).subscribe(
@@ -106,5 +106,9 @@ export class PublicacionComponent implements OnInit {
         }
       }
     )
+  }
+
+  reload(id:any){
+    this.router.navigate([`/publicacion/${id}`]).then(() =>{window.location.reload()});
   }
 }
