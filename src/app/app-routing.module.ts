@@ -17,6 +17,7 @@ import { EditarPublicacionComponent } from "./components/editar-publicacion/edit
 import { CrearPublicacionComponent } from "./components/crear-publicacion/crear-publicacion.component";
 import { PublicacionesComponent } from "./components/publicaciones/publicaciones.component";
 import { PublicacionComponent } from "./components/publicacion/publicacion.component";
+import { ComoFuncionaComponent } from "./components/como-funciona/como-funciona.component";
 
 import { AuthGuard } from './auth.guard'
 
@@ -86,6 +87,10 @@ const routes: Routes = [
   {
     path: 'publicacion/:id',
     component: PublicacionComponent
+  },
+  {
+    path: 'como-funciona',
+    component: ComoFuncionaComponent
   }
 ];
 

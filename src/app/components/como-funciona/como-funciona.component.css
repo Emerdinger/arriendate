@@ -1,0 +1,68 @@
+#head{
+    overflow: hidden;
+    width: 100%;
+}
+
+#head .content{
+    padding-top: 20vh;
+    background: linear-gradient(180deg, rgb(73, 66, 214) 0%, rgb(74, 74, 223) 35%, rgba(0,212,255,1) 100%);
+    width: 110%;
+    height: 70vh;
+    border-bottom-left-radius: 45%;
+    border-bottom-right-radius: 45%;
+    margin-left: -5%;
+    color: white;
+}
+
+#head a{
+    width: 220px;
+    margin-top: 3vh;
+    transition: 800ms;
+}
+
+#head a:hover{
+    transform: scale(1.2);
+    transition: 800ms;
+}
+
+.como-funciona{
+    margin-top: 5%;
+}
+
+.como-funciona h4{
+    color: rgb(73, 66, 214) ;
+}
+
+.como-funciona-section{
+    margin-bottom: 15vh;
+}
+
+.imagen img{
+    width: 30vh;
+    height: 30vh;
+}
+
+@media (max-width: 750px){
+    #head .content{
+        padding-top: 20vh;
+        background: linear-gradient(180deg, rgb(73, 66, 214) 0%, rgb(74, 74, 223) 35%, rgba(0,212,255,1) 100%);
+        height: 70vh;
+        border-bottom-left-radius: 55%;
+        border-bottom-right-radius: 55%;
+        color: white;
+    }
+}
+
+@media (max-width: 500px){
+    #head .content{
+        padding-top: 20vh;
+        background: linear-gradient(180deg, rgb(73, 66, 214) 0%, rgb(74, 74, 223) 35%, rgba(0,212,255,1) 100%);
+        height: 55vh;
+        border-bottom-left-radius: 45%;
+        border-bottom-right-radius: 45%;
+        color: white;
+    }
+    .imagen{
+        display: none;
+    }
+}

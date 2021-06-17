@@ -98,15 +98,15 @@
         <div class="col-md-1"></div>
     </div>
     <div class="text-center pb-5">
-        <a href="#"><button class="btn btn-info btn-hover">VER CÓMO FUNCIONA</button></a>
+        <a routerLink="/como-funciona" routerLinkActive="active"><button class="btn btn-info btn-hover">VER CÓMO FUNCIONA</button></a>
     </div>
 
-    <ng-container *ngIf="!authService.loggedIn(); else loggedEncuesta">
+    <ng-container *ngIf="!authService.loggedIn(); else logged">
         <div class="text-center pb-5">
             <h3>¿Aún no tienes cuenta?  <a routerLink="/signup" routerLinkActive="active"><button class="btn btn-success">Crear cuenta</button></a></h3>
         </div>
     </ng-container>
-    <ng-template #loggedEncuesta>
+    <ng-template #logged>
         <div class="text-center pb-5">
             <h3>Pública tu casa o apartamento ahora <a routerLink="/publicacion/nueva/crear" routerLinkActive="active"><button class="btn btn-success">Nueva publicación</button></a></h3>
         </div>

@@ -26,6 +26,9 @@
           <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
+                <a class="nav-link" routerLink="/como-funciona" routerLinkActive="active">Cómo funciona</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" routerLink="/publicaciones" routerLinkActive="active">Publicaciones</a>
               </li>
               <li class="nav-item">
@@ -38,6 +41,9 @@
           </ng-container>
           <ng-template #loggedIn>
             <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/como-funciona" routerLinkActive="active">Cómo funciona</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" routerLink="/publicaciones" routerLinkActive="active">Publicaciones</a>
               </li>

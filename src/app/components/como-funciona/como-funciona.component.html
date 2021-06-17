@@ -1,0 +1,118 @@
+<div id="head" class="text-center">
+    <div class="content">
+        <h1>Fácil de usar</h1>
+        <h4>Sin instalaciones ni descargas, se hace todo por internet.</h4>
+        <a routerLink="/publicacion/nueva/crear" routerLinkActive="active" class="btn btn-success">CREAR PUBLICACIÓN</a>
+    </div>
+</div>
+
+<div class="como-funciona container">
+    <div class="row como-funciona-section">
+        <div class="col-md-6">
+            <div class="imagen text-center">
+                <img src="assets/img/mobileAndHand.png" alt="">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <i class="fas fa-pencil fa-3x mb-3"></i>
+            <h4>Crea tu propia publicación</h4>
+            <p>Desde nuestra página podrás crear tus publicaciones y por en venta o arriendo tus inmuebles 100% online
+                sin descargar nada</p>
+            <div class="row">
+                <div class="col-1">
+                    <i class="fal fa-check fa-2x" style="color: rgb(137, 204, 137);"></i>
+                </div>
+                <div class="col-11">
+                    <p>Interfaz sencilla e intuitiva.</p>
+                </div>
+                <div class="col-1">
+                    <i class="fal fa-check fa-2x" style="color: rgb(137, 204, 137);"></i>
+                </div>
+                <div class="col-11">
+                    <p>Hasta 14 opciones para personalizar tu publicación.</p>
+                </div>
+                <div class="col-1">
+                    <i class="fal fa-check fa-2x" style="color: rgb(137, 204, 137);"></i>
+                </div>
+                <div class="col-11">
+                    <p>Comentarios en tu publicación.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row como-funciona-section">
+        <div class="col-md-6">
+            <i class="fas fa-palette fa-3x mb-3"></i>
+            <h4>Diseño atractivo</h4>
+            <p>Tenemos un diseño intuitivo y llamativo para que te sientas comodo en cualquier momento.</p>
+            <div class="row">
+                <div class="col-1">
+                    <i class="fal fa-check fa-2x" style="color: rgb(137, 204, 137);"></i>
+                </div>
+                <div class="col-11">
+                    <p>Logos, colores y fuentes corporativas.</p>
+                </div>
+                <div class="col-1">
+                    <i class="fal fa-check fa-2x" style="color: rgb(137, 204, 137);"></i>
+                </div>
+                <div class="col-11">
+                    <p>Añada imágenes a sus publicaciones.</p>
+                </div>
+                <div class="col-1">
+                    <i class="fal fa-check fa-2x" style="color: rgb(137, 204, 137);"></i>
+                </div>
+                <div class="col-11">
+                    <p>Edite sus publicaciones en cualquier momento.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="imagen text-center">
+                <img src="assets/img/design.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="row como-funciona-section">
+        <div class="col-md-6">
+            <div class="imagen text-center">
+                <img src="assets/img/social-media-share.png" alt="">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <i class="fas fa-paper-plane fa-3x mb-3"></i>
+            <h4>Distribuye tu publicación fácilmente</h4>
+            <p>Enviá las publicaciones de tus inmuebles fácilmente a traves del link generado automáticamente.</p>
+            <div class="row">
+                <div class="col-1">
+                    <i class="fal fa-check fa-2x" style="color: rgb(137, 204, 137);"></i>
+                </div>
+                <div class="col-11">
+                    <p>Envíala por email.</p>
+                </div>
+                <div class="col-1">
+                    <i class="fal fa-check fa-2x" style="color: rgb(137, 204, 137);"></i>
+                </div>
+                <div class="col-11">
+                    <p>Compártela en tus redes sociales.</p>
+                </div>
+                <div class="col-1">
+                    <i class="fal fa-check fa-2x" style="color: rgb(137, 204, 137);"></i>
+                </div>
+                <div class="col-11">
+                    <p>Publícala en la web.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-container *ngIf="!authService.loggedIn(); else logged">
+        <div class="text-center pb-5">
+            <h3>¿Aún no tienes cuenta?  <a routerLink="/signup" routerLinkActive="active"><button class="btn btn-success">Crear cuenta</button></a></h3>
+        </div>
+    </ng-container>
+    <ng-template #logged>
+        <div class="text-center pb-5">
+            <h3>Pública tu casa o apartamento ahora <a routerLink="/publicacion/nueva/crear" routerLinkActive="active"><button class="btn btn-success">Nueva publicación</button></a></h3>
+        </div>
+    </ng-template>
+</div>
