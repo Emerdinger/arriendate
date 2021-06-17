@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { PublicacionesService } from "../../services/publicaciones.service";
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-editar-publicacion',
@@ -47,16 +48,32 @@ export class EditarPublicacionComponent implements OnInit {
   }
 
   editarPublicacion(){
-    console.log(this.publicacion._id)
-    this.publicacionesService.editPublicacion(this.publicacion).subscribe(
-      res => {
-        if(res.error){
-          this.error.err = res.error;
-        }else{
+    Swal.fire({
+      title: '¿Seguro que quiere guardar los cambios?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: `Guardar`,
+      denyButtonText: `No guardar`,
+      cancelButtonText: `Cancelar`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.publicacionesService.editPublicacion(this.publicacion).subscribe(
+          res => {
+            if(res.error){
+              this.error.err = res.error;
+            }else{
+              Swal.fire('Publicación editada correctamente!', '', 'success').then(()=>{
+                this.router.navigate(['/profile']);
+              })
+            }
+          }
+        )
+      } else if (result.isDenied) {
+        Swal.fire('Los cambios no han sido guardados', '', 'info').then(()=>{
           this.router.navigate(['/profile']);
-        }
+        })
       }
-    )
+    })
   }
 
 }

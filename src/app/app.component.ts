@@ -3,6 +3,7 @@ import { AuthService } from "./services/auth.service";
 import { UsersService } from "./services/users.service";
 import { ProfilesComponent } from "./components/profiles/profiles.component";
 import { Router } from '@angular/router'
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-root',

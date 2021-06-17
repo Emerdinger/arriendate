@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from "../../services/users.service";
 import { Router } from '@angular/router'
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-edit-profile',
@@ -36,16 +37,31 @@ export class EditProfileComponent implements OnInit {
   }
 
   editProfile(){
-    this.usersService.editProfile(this.user).subscribe(
-      res => {
-        this.user = res
-        this.router.navigate(['/profile']);
-      },
-      err => {
-        console.log(err);
+    Swal.fire({
+      title: '¿Seguro que quiere guardar los cambios?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: `Guardar`,
+      denyButtonText: `No guardar`,
+      cancelButtonText: `Cancelar`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('Guardado correctamente!', '', 'success').then(()=>{
+          this.usersService.editProfile(this.user).subscribe(
+            res => {
+              this.user = res
+              this.router.navigate(['/profile']);
+            },
+            err => {
+              console.log(err);
+            }
+          )
+        })
+      } else if (result.isDenied) {
+        Swal.fire('Los cambios no han sido guardados', '', 'info').then(()=>{
+          this.router.navigate(['/profile']);
+        })
       }
-    )
-    console.log(this.user);
+    })
   }
-
 }
